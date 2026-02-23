@@ -1,0 +1,850 @@
+ <!--RECORDATORIO DE LAS EXTERNCIONES 
+    * LIVE SERVER
+    * IMAGE PREVIEW
+    * Material Icon Theme-->
+
+<!DOCTYPE html> <!-- Declara que es documento HTML5 -->
+<html lang="es"> <!-- Idioma español -->
+<head> <!-- Cabecera con metadatos -->
+    <meta charset="UTF-8"> <!-- Codificación caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive -->
+    <title>Portafolio Artístico | Ilustraciones Cute</title> <!-- Título pestaña navegador -->
+    <link rel="stylesheet" href="styles.css"> <!-- Vincula hoja estilos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"> <!-- Fuentes Google -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon -->
+</head>
+<body> <!-- Cuerpo página -->
+
+    <div class="side-decor left">
+        <span>🌸</span>
+        <span>✨</span>
+        <span>🫧</span>
+    </div>
+
+
+    <div class="side-decor right">
+        <span>🌸</span>
+        <span>✨</span>
+        <span>🫧</span>
+    </div>
+
+
+    <!-- Header / Navegación -->
+    <header class="header"> <!-- Cabecera principal fija -->
+        <div class="container"> <!-- Contenedor centrado -->
+            <nav class="navbar"> <!-- Barra navegación -->
+                <a href="#" class="logo"> <!-- Logo clickeable -->
+                    <i class="fas fa-palette"></i> <!-- Icono paleta -->
+                    <span>ArtPortfolio</span> <!-- Texto logo -->
+                </a>
+                <ul class="nav-menu"> <!-- Lista navegación -->
+                    <li><a href="#inicio">Inicio</a></li> <!-- Enlace sección inicio -->
+                    <li><a href="#galeria">Galería</a></li> <!-- Enlace sección galería -->
+                    <li><a href="#categorias">Categorías</a></li> <!-- Enlace sección categorías -->
+                    <li><a href="#sobre">Sobre Mí</a></li> <!-- Enlace sección sobre mí -->
+                    <li><a href="#contacto">Contacto</a></li> <!-- Enlace sección contacto -->
+                </ul>
+                <button class="menu-toggle"> <!-- Botón menú móvil -->
+                    <i class="fas fa-bars"></i> <!-- Icono hamburguesa -->
+                </button>
+            </nav>
+        </div>
+    </header>
+
+<!-- Sección Hero / Inicio -->
+    <section id="inicio" class="hero"> <!-- Sección principal con ID para navegación -->
+        <div class="container"> <!-- Contenedor centrado -->
+            <div class="hero-content"> <!-- Contenedor contenido texto -->
+                <h1 class="hero-title"> <!-- Título principal -->
+                    <span class="highlight">Creatividad</span> en <br>cada <span class="highlight">trazo</span>
+                </h1>
+                <p class="hero-subtitle"> <!-- Subtítulo descriptivo -->
+                    Ilustraciones digitales, diseño de personajes, escenarios y animaciones 
+                </p>
+                <div class="hero-buttons"> <!-- Contenedor botones -->
+                    <a href="#galeria" class="btn btn-primary"> <!-- Botón primario -->
+                        <i class="fas fa-images"></i> Ver Galería
+                    </a>
+                    <a href="#contacto" class="btn btn-secondary"> <!-- Botón secundario -->
+                        <i class="fas fa-envelope"></i> Contáctame
+                    </a>
+                </div>
+                <div class="hero-stats"> <!-- Estadísticas decorativas -->
+                    <div class="stat"> <!-- Item estadística -->
+                        <span class="stat-number">12+</span> <!-- Número -->
+                        <span class="stat-text">Proyectos</span> <!-- Texto -->
+                    </div>
+                    <div class="stat"> <!-- Item estadística -->
+                        <span class="stat-number">4</span> <!-- Número -->
+                        <span class="stat-text">Categorías</span> <!-- Texto -->
+                    </div>
+                    <div class="stat"> <!-- Item estadística -->
+                        <span class="stat-number">100%</span> <!-- Número -->
+                        <span class="stat-text">Dedicación</span> <!-- Texto -->
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image"> <!-- Contenedor imagen personalizada -->
+                <!-- IMAGEN PERSONALIZADA - Reemplaza con tu ilustración -->
+                <img src="assets/mi-ilustracion.jpg" alt="Ilustración personalizada - Mi arte" class="custom-hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Galería Principal -->
+    <section id="galeria" class="gallery"> <!-- Sección galería con ID -->
+        <div class="container"> <!-- Contenedor centrado -->
+            <div class="section-header"> <!-- Cabecera sección -->
+                <h2 class="section-title"> <!-- Título sección -->
+                    Mi <span class="highlight">Galería</span> de Arte
+                </h2>
+                <p class="section-subtitle"> <!-- Subtítulo sección -->
+                    Explora mis creaciones organizadas por categorías
+                </p>
+            </div>
+
+            <!-- Filtros por categoría -->
+            <div class="filter-container"> <!-- Contenedor filtros -->
+                <div class="filter-buttons"> <!-- Botones filtro -->
+                    <button class="filter-btn active" data-filter="all"> <!-- Botón activo -->
+                        <i class="fas fa-th-large"></i> Todos
+                    </button>
+                    <button class="filter-btn" data-filter="personajes"> <!-- Botón personajes -->
+                        <i class="fas fa-user"></i> Personajes
+                    </button>
+                    <button class="filter-btn" data-filter="escenarios"> <!-- Botón escenarios -->
+                        <i class="fas fa-mountain"></i> Escenarios
+                    </button>
+                    <button class="filter-btn" data-filter="3d"> <!-- Botón 3D -->
+                        <i class="fas fa-cube"></i> 3D
+                    </button>
+                    <button class="filter-btn" data-filter="animaciones"> <!-- Botón animaciones -->
+                        <i class="fas fa-film"></i> Animaciones
+                    </button>
+                </div>
+                <div class="filter-info"> <!-- Información filtro activo -->
+                    <span id="active-filter">Mostrando: Todos los dibujos</span> <!-- Texto dinámico -->
+                </div>
+            </div>
+
+            <!-- Grid de Galería -->
+            <div class="gallery-grid"> <!-- Contenedor grid -->
+                
+                <!-- PERSONAJES (3 dibujos) -->
+                <div class="art-card" data-category="personajes" data-id="1"> <!-- Card personaje 1 -->
+                    <div class="card-header"> <!-- Cabecera card -->
+                        <span class="category-badge"> <!-- Badge categoría -->
+                            <i class="fas fa-user"></i> Personaje
+                        </span>
+                        <button class="favorite-btn"> <!-- Botón favorito -->
+                            <i class="far fa-heart"></i> <!-- Icono corazón vacío -->
+                        </button>
+                    </div>
+
+                <!-- DIBUJOSSSSSSSSSSSSSSSSSSSSSSS -->
+
+            <!--1-->        <div class="art-image"> <!-- Contenedor imagen -->
+                        <img src="assets/full body.jpg" alt="Personaje Kawaii 1 - Ilustración digital de personaje cute">
+                        <div class="art-overlay"> <!-- Overlay información -->
+                            <div class="overlay-content"> <!-- Contenido overlay -->
+                                <h3>Althea</h3> <!-- Título dibujo -->
+                                <p>Ilustración digital | Personaje principal</p> <!-- Descripción -->
+                                <div class="art-meta"> <!-- Metadatos -->
+                                    <span><i class="fas fa-calendar"></i> Enero 2024</span> <!-- Fecha -->
+                                    <span><i class="fas fa-clock"></i> 8 horas</span> <!-- Tiempo -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer"> <!-- Pie card -->
+                        <h4>Althea</h4> <!-- Título -->
+                        <p>Personaje secundario, ayudante de un boticario</p> <!-- Descripción corta -->
+                    </div>
+                </div>
+            <!--2-->
+                <div class="art-card" data-category="personajes" data-id="2"> <!-- Card personaje 2 -->
+                    <div class="card-header">
+                        <span class="category-badge">
+                            <i class="fas fa-user"></i> Personaje
+                        </span>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <div class="art-image">
+                        <img src="assets/SIRENOP.jpg" alt="Personaje Kawaii 2 - Ilustración de personaje mágico">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <h3>Sireno Kilzon Robi</h3>
+                                <p>Acuarela digital | Personaje fantástico</p>
+                                <div class="art-meta">
+                                    <span><i class="fas fa-calendar"></i> Febrero 2024</span>
+                                    <span><i class="fas fa-clock"></i> 12 horas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <h4>Sireno Kilzon Robi</h4>
+                        <p>Protector del oceano</p>
+                    </div>
+                </div>
+
+            <!--3-->
+            
+                <div class="art-card" data-category="personajes" data-id="3"> <!-- Card personaje 3 -->
+                    <div class="card-header">
+                        <span class="category-badge">
+                            <i class="fas fa-user"></i> Personaje
+                        </span>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="art-image">
+                        <img src="assets/waifo_1.jpg" alt="Personaje Kawaii 3 - Diseño de personaje anime">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <h3>Chico Robot</h3>
+                                <p>Ilustración vectorial | Personaje futurista</p>
+                                <div class="art-meta">
+                                    <span><i class="fas fa-calendar"></i> Marzo 2024</span>
+                                    <span><i class="fas fa-clock"></i> 10 horas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <h4>Indigena Nitle</h4>
+                        <p>Bruja de corazón vengativo</p>
+                    </div>
+                </div>
+
+                <!-- ESCENARIOS (3 dibujos) -->
+
+        
+                <!--1-->
+                <div class="art-card" data-category="escenarios" data-id="4"> <!-- Card escenario 1 -->
+                    <div class="card-header">
+                        <span class="category-badge bg-escenario"> <!-- Badge con clase específica -->
+                            <i class="fas fa-mountain"></i> Escenario
+                        </span>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="art-image">
+                        <img src="assets/SOLO DIBUJO.jpg" alt="Escenario Mágico 1 - Paisaje de ciudad flotante">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <h3>Ciudad Flotante</h3>
+                                <p>Paisaje digital | Mundo fantástico</p>
+                                <div class="art-meta">
+                                    <span><i class="fas fa-calendar"></i> Diciembre 2023</span>
+                                    <span><i class="fas fa-clock"></i> 15 horas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <h4>Camino del peregrino</h4>
+                        <p>Entrada al bosque de las luciérnagas </p>
+                    </div>
+                </div>
+            <!--2-->
+                <div class="art-card" data-category="escenarios" data-id="5"> <!-- Card escenario 2 -->
+                    <div class="card-header">
+                        <span class="category-badge bg-escenario">
+                            <i class="fas fa-mountain"></i> Escenario
+                        </span>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="art-image">
+                        <img src="assets/FONDO_PRO_300000.jpg" alt="Escenario Mágico 2 - Bosque encantado nocturno">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <h3>Bosque Encantado</h3>
+                                <p>Ilustración nocturna | Ambiente mágico</p>
+                                <div class="art-meta">
+                                    <span><i class="fas fa-calendar"></i> Noviembre 2023</span>
+                                    <span><i class="fas fa-clock"></i> 20 horas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <h4>Portal a la eternidad</h4>
+                        <p>Zaalaz protege la entrada, quiere tu alma a cambio</p>
+                    </div>
+                </div>
+            <!--3-->
+                <div class="art-card" data-category="escenarios" data-id="6"> <!-- Card escenario 3 -->
+                    <div class="card-header">
+                        <span class="category-badge bg-escenario">
+                            <i class="fas fa-mountain"></i> Escenario
+                        </span>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="art-image">
+                        <img src="assets/imagen.jpg" alt="Escenario Mágico 3 - Ciudad submarina futurista">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <h3>Ciudad Submarina</h3>
+                                <p>Concept art | Mundo acuático</p>
+                                <div class="art-meta">
+                                    <span><i class="fas fa-calendar"></i> Octubre 2023</span>
+                                    <span><i class="fas fa-clock"></i> 18 horas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <h4>Ciudad Submarina</h4>
+                        <p>Civilización avanzada bajo el mar</p>
+                    </div>
+                </div>
+
+                <!-- 3D (3 dibujos) -->
+
+                <div class="art-card" data-category="3d" data-id="7"> <!-- Card 3D 1 -->
+                    <div class="card-header">
+                        <span class="category-badge bg-3d"> <!-- Badge con clase específica -->
+                            <i class="fas fa-cube"></i> 3D
+                        </span>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="art-image">
+                        <img src="imagenes/3d/dibujo_3d_1.jpg" alt="Modelo 3D 1 - Criatura fantástica renderizada">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <h3>Dragón Cristal</h3>
+                                <p>Modelado 3D | Texturizado PBR</p>
+                                <div class="art-meta">
+                                    <span><i class="fas fa-calendar"></i> Septiembre 2023</span>
+                                    <span><i class="fas fa-clock"></i> 40 horas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <h4>Dragón Cristal</h4>
+                        <p>Criatura de cristal y energía pura</p>
+                    </div>
+                </div>
+
+                <div class="art-card" data-category="3d" data-id="8"> <!-- Card 3D 2 -->
+                    <div class="card-header">
+                        <span class="category-badge bg-3d">
+                            <i class="fas fa-cube"></i> 3D
+                        </span>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="art-image">
+                        <img src="imagenes/3d/dibujo_3d_2.jpg" alt="Modelo 3D 2 - Nave espacial futurista">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <h3>Nave Estelar</h3>
+                                <p>Modelado 3D | Diseño industrial</p>
+                                <div class="art-meta">
+                                    <span><i class="fas fa-calendar"></i> Agosto 2023</span>
+                                    <span><i class="fas fa-clock"></i> 35 horas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <h4>Nave Estelar</h4>
+                        <p>Vehículo de exploración interestelar</p>
+                    </div>
+                </div>
+
+                <div class="art-card" data-category="3d" data-id="9"> <!-- Card 3D 3 -->
+                    <div class="card-header">
+                        <span class="category-badge bg-3d">
+                            <i class="fas fa-cube"></i> 3D
+                        </span>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="art-image">
+                        <img src="imagenes/3d/dibujo_3d_3.jpg" alt="Modelo 3D 3 - Templo antiguo renderizado">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <h3>Templo Ancestral</h3>
+                                <p>Arquitectura 3D | Render fotorrealista</p>
+                                <div class="art-meta">
+                                    <span><i class="fas fa-calendar"></i> Julio 2023</span>
+                                    <span><i class="fas fa-clock"></i> 50 horas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <h4>Templo Ancestral</h4>
+                        <p>Estructura sagrada de civilización antigua</p>
+                    </div>
+                </div>
+
+                <!-- ANIMACIONES (3 dibujos) -->
+
+                <div class="art-card" data-category="animaciones" data-id="10"> <!-- Card animación 1 -->
+                    <div class="card-header">
+                        <span class="category-badge bg-animacion"> <!-- Badge con clase específica -->
+                            <i class="fas fa-film"></i> Animación
+                        </span>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="art-image">
+                        <img src="imagenes/animaciones/dibujo_animacion_1.jpg" alt="Animación 1 - Frame de animación 2D de personaje saltando">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <h3>Salto de Alegría</h3>
+                                <p>Animación 2D | 24 fps | Ciclo de salto</p>
+                                <div class="art-meta">
+                                    <span><i class="fas fa-calendar"></i> Junio 2023</span>
+                                    <span><i class="fas fa-clock"></i> 60 horas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <h4>Salto de Alegría</h4>
+                        <p>Animación de personaje expresando felicidad</p>
+                    </div>
+                </div>
+
+                <div class="art-card" data-category="animaciones" data-id="11"> <!-- Card animación 2 -->
+                    <div class="card-header">
+                        <span class="category-badge bg-animacion">
+                            <i class="fas fa-film"></i> Animación
+                        </span>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="art-image">
+                        <img src="imagenes/animaciones/dibujo_animacion_2.jpg" alt="Animación 2 - Frame de transformación mágica">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <h3>Transformación Mágica</h3>
+                                <p>Animación de transformación | Efectos VFX</p>
+                                <div class="art-meta">
+                                    <span><i class="fas fa-calendar"></i> Mayo 2023</span>
+                                    <span><i class="fas fa-clock"></i> 45 horas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <h4>Transformación Mágica</h4>
+                        <p>Metamorfosis de humano a criatura mágica</p>
+                    </div>
+                </div>
+
+                <div class="art-card" data-category="animaciones" data-id="12"> <!-- Card animación 3 -->
+                    <div class="card-header">
+                        <span class="category-badge bg-animacion">
+                            <i class="fas fa-film"></i> Animación
+                        </span>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="art-image">
+                        <img src="imagenes/animaciones/dibujo_animacion_3.jpg" alt="Animación 3 - Frame de batalla épica">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <h3>Batalla Épica</h3>
+                                <p>Animación de acción | Secuencia de combate</p>
+                                <div class="art-meta">
+                                    <span><i class="fas fa-calendar"></i> Abril 2023</span>
+                                    <span><i class="fas fa-clock"></i> 80 horas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <h4>Batalla Épica</h4>
+                        <p>Enfrentamiento entre héroe y villano</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Categorías -->
+    <section id="categorias" class="categories"> <!-- Sección categorías con ID -->
+        <div class="container"> <!-- Contenedor centrado -->
+            <div class="section-header"> <!-- Cabecera sección -->
+                <h2 class="section-title"> <!-- Título sección -->
+                    Mis <span class="highlight">Especialidades</span>
+                </h2>
+                <p class="section-subtitle"> <!-- Subtítulo sección -->
+                    Explorando diferentes técnicas y estilos artísticos
+                </p>
+            </div>
+
+            <div class="categories-grid"> <!-- Grid categorías -->
+                <div class="category-card" data-category="personajes"> <!-- Card categoría personajes -->
+                    <div class="category-icon"> <!-- Icono categoría -->
+                        <i class="fas fa-user"></i> <!-- Icono usuario -->
+                    </div>
+                    <h3>Personajes</h3> <!-- Título categoría -->
+                    <p>Creación de personajes únicos con personalidad y emociones</p> <!-- Descripción -->
+                    <div class="category-stats"> <!-- Estadísticas -->
+                        <span><strong>3</strong> Proyectos</span> <!-- Número proyectos -->
+                        <span><strong>80%</strong> Humanisados</span> <!-- Porcentaje estilo -->
+                    </div>
+                    <a href="#galeria" class="category-link" data-filter="personajes"> <!-- Enlace filtrado -->
+                        Ver proyectos <i class="fas fa-arrow-right"></i> <!-- Texto + icono -->
+                    </a>
+                </div>
+
+                <div class="category-card" data-category="escenarios"> <!-- Card categoría escenarios -->
+                    <div class="category-icon">
+                        <i class="fas fa-mountain"></i> <!-- Icono montaña -->
+                    </div>
+                    <h3>Escenarios</h3>
+                    <p>Diseño de mundos fantásticos y ambientes inmersivos</p>
+                    <div class="category-stats">
+                        <span><strong>3</strong> Proyectos</span>
+                        <span><strong>100%</strong> Mágicos</span>
+                    </div>
+                    <a href="#galeria" class="category-link" data-filter="escenarios">
+                        Ver proyectos <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="category-card" data-category="3d"> <!-- Card categoría 3D -->
+                    <div class="category-icon">
+                        <i class="fas fa-cube"></i> <!-- Icono cubo -->
+                    </div>
+                    <h3>Modelado 3D</h3>
+                    <p>Creación de objetos y personajes en tres dimensiones</p>
+                    <div class="category-stats">
+                        <span><strong>3</strong> Proyectos</span>
+                        <span><strong>100%</strong> Detallados</span>
+                    </div>
+                    <a href="#galeria" class="category-link" data-filter="3d">
+                        Ver proyectos <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="category-card" data-category="animaciones"> <!-- Card categoría animaciones -->
+                    <div class="category-icon">
+                        <i class="fas fa-film"></i> <!-- Icono film -->
+                    </div>
+                    <h3>Animaciones</h3>
+                    <p>Dando vida a mis creaciones con movimiento y fluidez</p>
+                    <div class="category-stats">
+                        <span><strong>3</strong> Proyectos</span>
+                        <span><strong>100%</strong> Dinámicos</span>
+                    </div>
+                    <a href="#galeria" class="category-link" data-filter="animaciones">
+                        Ver proyectos <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section id="sobre" class="about"> <!-- Sección sobre mí con ID -->
+        <div class="container"> <!-- Contenedor centrado -->
+            <div class="about-content"> <!-- Contenedor contenido -->
+                <div class="about-image"> <!-- Columna imagen -->
+                    <div class="image-frame"> <!-- Marco imagen -->
+                        <div class="frame-decoration"></div> <!-- Decoración marco -->
+                        <div class="frame-decoration"></div> <!-- Decoración marco -->
+                        <div class="frame-decoration"></div> <!-- Decoración marco -->
+                        <div class="artist-avatar"> <!-- Avatar artista -->
+                            <i class="fas fa-paint-brush"></i> <!-- Icono pincel -->
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text"> <!-- Columna texto -->
+                    <h2 class="section-title"> <!-- Título sección -->
+                        Sobre <span class="highlight">Mí</span>
+                    </h2>
+                    <p class="about-description"> <!-- Descripción -->
+                        Hola, no se que poner aqui pero seria algo interesante sobre mimimimimimi
+                        quien sabeeeeee xd xd xd 
+                    </p>
+                    
+                    <div class="skills"> <!-- Habilidades -->
+                        <h3>Mis <span class="highlight">Habilidades</span></h3> <!-- Título habilidades -->
+                        <div class="skill-item"> <!-- Item habilidad -->
+                            <div class="skill-header"> <!-- Cabecera habilidad -->
+                                <span>Ilustración Digital</span> <!-- Nombre habilidad -->
+                                <span>95%</span> <!-- Porcentaje -->
+                            </div>
+                            <div class="skill-bar"> <!-- Barra progreso -->
+                                <div class="skill-progress" style="width: 95%"></div> <!-- Progreso real -->
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item"> <!-- Item habilidad -->
+                            <div class="skill-header">
+                                <span>Modelado 3D</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item"> <!-- Item habilidad -->
+                            <div class="skill-header">
+                                <span>Animación 2D/3D</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item"> <!-- Item habilidad -->
+                            <div class="skill-header">
+                                <span>Diseño de Personajes</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-buttons"> <!-- Botones sección -->
+                        <a href="#contacto" class="btn btn-primary"> <!-- Botón contacto -->
+                            <i class="fas fa-paper-plane"></i> Trabajemos Juntos
+                        </a>
+                        <a href="#galeria" class="btn btn-secondary"> <!-- Botón galería -->
+                            <i class="fas fa-download"></i> Ver Portafolio Completo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="contact"> <!-- Sección contacto con ID -->
+        <div class="container"> <!-- Contenedor centrado -->
+            <div class="section-header"> <!-- Cabecera sección -->
+                <h2 class="section-title"> <!-- Título sección -->
+                    ¡Hablemos! <span class="highlight">💖</span>
+                </h2>
+                <p class="section-subtitle"> <!-- Subtítulo sección -->
+                    ¿Tienes un proyecto en mente? ¡Contáctame!
+                </p>
+            </div>
+
+            <div class="contact-content"> <!-- Contenido contacto -->
+                <form class="contact-form" id="contactForm"> <!-- Formulario con ID -->
+                    <div class="form-group"> <!-- Grupo formulario -->
+                        <label for="name"> <!-- Etiqueta campo -->
+                            <i class="fas fa-user"></i> Tu Nombre
+                        </label>
+                        <input type="text" id="name" name="name" placeholder="¿Cómo te llamas?" required> <!-- Campo texto -->
+                    </div>
+
+                    <div class="form-group"> <!-- Grupo formulario -->
+                        <label for="email"> <!-- Etiqueta campo -->
+                            <i class="fas fa-envelope"></i> Tu Email
+                        </label>
+                        <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required> <!-- Campo email -->
+                    </div>
+
+                    <div class="form-group"> <!-- Grupo formulario -->
+                        <label for="category"> <!-- Etiqueta campo -->
+                            <i class="fas fa-tag"></i> Categoría de Proyecto
+                        </label>
+                        <select id="category" name="category"> <!-- Select opciones -->
+                            <option value="">Selecciona una categoría</option> <!-- Opción vacía -->
+                            <option value="personajes">Personajes</option> <!-- Opción personajes -->
+                            <option value="escenarios">Escenarios</option> <!-- Opción escenarios -->
+                            <option value="3d">Modelado 3D</option> <!-- Opción 3D -->
+                            <option value="animaciones">Animación</option> <!-- Opción animaciones -->
+                            <option value="otro">Otro</option> <!-- Opción otro -->
+                        </select>
+                    </div>
+
+                    <div class="form-group"> <!-- Grupo formulario -->
+                        <label for="message"> <!-- Etiqueta campo -->
+                            <i class="fas fa-comment"></i> Tu Mensaje
+                        </label>
+                        <textarea id="message" name="message" rows="5" placeholder="Cuéntame sobre tu proyecto, ideas, presupuesto..." required></textarea> <!-- Textarea -->
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block"> <!-- Botón enviar -->
+                        <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                    </button>
+                </form>
+
+                <div class="contact-info"> <!-- Información contacto -->
+                    <div class="info-card"> <!-- Tarjeta información -->
+                        <div class="info-icon"> <!-- Icono información -->
+                            <i class="fas fa-envelope"></i> <!-- Icono email -->
+                        </div>
+                        <h4>Email</h4> <!-- Título -->
+                        <p>hola@artportfolio.com</p> <!-- Información -->
+                        <span>Respuesta en 24h</span> <!-- Detalle -->
+                    </div>
+
+                    <div class="info-card"> <!-- Tarjeta información -->
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i> <!-- Icono teléfono -->
+                        </div>
+                        <h4>Teléfono</h4>
+                        <p>+34 123 456 789</p>
+                        <span>Lunes a Viernes 9:00-18:00</span> <!-- Detalle -->
+                    </div>
+
+                    <div class="info-card"> <!-- Tarjeta información -->
+                        <div class="info-icon">
+                            <i class="fab fa-instagram"></i> <!-- Icono Instagram -->
+                        </div>
+                        <h4>Instagram</h4>
+                        <p>@artportfolio_ok</p>
+                        <span>Dibujos diarios</span> <!-- Detalle -->
+                    </div>
+
+                    <div class="info-card"> <!-- Tarjeta información -->
+                        <div class="info-icon">
+                            <i class="fab fa-twitter"></i> <!-- Icono Twitter -->
+                        </div>
+                        <h4>Twitter</h4>
+                        <p>@artportfolio_tw</p>
+                        <span>Procesos y tips</span> <!-- Detalle -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer"> <!-- Pie de página -->
+        <div class="container"> <!-- Contenedor centrado -->
+            <div class="footer-content"> <!-- Contenido footer -->
+                <div class="footer-brand"> <!-- Marca footer -->
+                    <div class="footer-logo"> <!-- Logo footer -->
+                        <i class="fas fa-palette"></i> <!-- Icono paleta -->
+                        <span>ArtPortfolio</span> <!-- Texto logo -->
+                    </div>
+                    <p class="footer-tagline"> <!-- Eslogan -->
+                        Creando magia con cada píxel ✨
+                    </p>
+                </div>
+
+                <div class="footer-links"> <!-- Enlaces footer -->
+                    <div class="link-group"> <!-- Grupo enlaces -->
+                        <h4>Navegación</h4> <!-- Título grupo -->
+                        <ul> <!-- Lista enlaces -->
+                            <li><a href="#inicio">Inicio</a></li> <!-- Enlace inicio -->
+                            <li><a href="#galeria">Galería</a></li> <!-- Enlace galería -->
+                            <li><a href="#categorias">Categorías</a></li> <!-- Enlace categorías -->
+                            <li><a href="#sobre">Sobre Mí</a></li> <!-- Enlace sobre mí -->
+                            <li><a href="#contacto">Contacto</a></li> <!-- Enlace contacto -->
+                        </ul>
+                    </div>
+
+                    <div class="link-group"> <!-- Grupo enlaces -->
+                        <h4>Categorías</h4> <!-- Título grupo -->
+                        <ul> <!-- Lista enlaces -->
+                            <li><a href="#galeria" data-filter="personajes">Personajes</a></li> <!-- Enlace filtrado -->
+                            <li><a href="#galeria" data-filter="escenarios">Escenarios</a></li> <!-- Enlace filtrado -->
+                            <li><a href="#galeria" data-filter="3d">Modelado 3D</a></li> <!-- Enlace filtrado -->
+                            <li><a href="#galeria" data-filter="animaciones">Animaciones</a></li> <!-- Enlace filtrado -->
+                        </ul>
+                    </div>
+
+                    <div class="link-group"> <!-- Grupo enlaces -->
+                        <h4>Legal</h4> <!-- Título grupo -->
+                        <ul> <!-- Lista enlaces -->
+                            <li><a href="#">Política de Privacidad</a></li> <!-- Enlace política -->
+                            <li><a href="#">Términos y Condiciones</a></li> <!-- Enlace términos -->
+                            <li><a href="#">Aviso Legal</a></li> <!-- Enlace legal -->
+                            <li><a href="#">Cookies</a></li> <!-- Enlace cookies -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-social"> <!-- Redes sociales -->
+                    <h4>Sígueme</h4> <!-- Título redes -->
+                    <div class="social-icons"> <!-- Iconos redes -->
+                        <a href="#" class="social-icon"> <!-- Enlace Instagram -->
+                            <i class="fab fa-instagram"></i> <!-- Icono Instagram -->
+                        </a>
+                        <a href="#" class="social-icon"> <!-- Enlace Twitter -->
+                            <i class="fab fa-twitter"></i> <!-- Icono Twitter -->
+                        </a>
+                        <a href="#" class="social-icon"> <!-- Enlace YouTube -->
+                            <i class="fab fa-youtube"></i> <!-- Icono YouTube -->
+                        </a>
+                        <a href="#" class="social-icon"> <!-- Enlace Pinterest -->
+                            <i class="fab fa-pinterest"></i> <!-- Icono Pinterest -->
+                        </a>
+                        <a href="#" class="social-icon"> <!-- Enlace ArtStation -->
+                            <i class="fab fa-artstation"></i> <!-- Icono ArtStation -->
+                        </a>
+                        <a href="#" class="social-icon"> <!-- Enlace Behance -->
+                            <i class="fab fa-behance"></i> <!-- Icono Behance -->
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom"> <!-- Parte inferior footer -->
+                <p class="copyright"> <!-- Copyright -->
+                    &copy; 2024 ArtPortfolio. Todos los derechos reservados. <!-- Texto copyright -->
+                </p>
+                <p class="made-with"> <!-- Hecho con -->
+                    Hecho con <i class="fas fa-heart"></i> y mucho color pastel <!-- Texto decorativo -->
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Volver Arriba -->
+    <button class="back-to-top" id="backToTop"> <!-- Botón volver arriba con ID -->
+        <i class="fas fa-chevron-up"></i> <!-- Icono flecha arriba -->
+    </button>
+
+    <!-- Modal para imagen ampliada -->
+    <div class="modal" id="imageModal"> <!-- Modal con ID -->
+        <div class="modal-content"> <!-- Contenido modal -->
+            <button class="modal-close" id="modalClose"> <!-- Botón cerrar -->
+                <i class="fas fa-times"></i> <!-- Icono X -->
+            </button>
+            <div class="modal-image-container"> <!-- Contenedor imagen -->
+                <img id="modalImage" src="" alt=""> <!-- Imagen dinámica -->
+            </div>
+            <div class="modal-info"> <!-- Información imagen -->
+                <h3 id="modalTitle"></h3> <!-- Título dinámico -->
+                <p id="modalDescription"></p> <!-- Descripción dinámica -->
+                <div class="modal-meta"> <!-- Metadatos -->
+                    <span id="modalCategory"></span> <!-- Categoría dinámica -->
+                    <span id="modalDate"></span> <!-- Fecha dinámica -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script> <!-- Vincula archivo JavaScript -->
+</body>
+</html>
