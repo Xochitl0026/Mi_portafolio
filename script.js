@@ -545,21 +545,15 @@ function setupScrollAnimations() {
 /**
  * Configura el formulario de contacto
  */
-// ============================================
-// FORMULARIO DE CONTACTO (VERSIÓN SIMPLIFICADA - FUNCIONA CON FORMSUBMIT)
-// ============================================
-
-/**
- * Configura el formulario de contacto
- */
 function setupContactForm() {
     if (!contactForm) return;
     
-    // Eliminamos el preventDefault para que el formulario se envíe normalmente
+    // El formulario ahora se envía realmente con FormSubmit.co
+    // Solo validamos antes de enviar
     contactForm.addEventListener('submit', function(e) {
         // Validar formulario antes de enviar
         if (!validateContactForm()) {
-            e.preventDefault(); // Solo prevenimos si hay errores de validación
+            e.preventDefault(); // Solo prevenimos si no es válido
             return false;
         }
         
@@ -567,21 +561,17 @@ function setupContactForm() {
         // Mostramos notificación de que se está enviando
         showNotification('Enviando mensaje... 📨', 'info');
         
-        // Importante: NO hacemos e.preventDefault() aquí
-        // El formulario se envía solo
-        
+        // El resto lo maneja FormSubmit.co
         return true;
     });
     
-    // Validación en tiempo real (esto se queda igual)
+    // Validación en tiempo real
     const formInputs = contactForm.querySelectorAll('input, textarea, select');
     formInputs.forEach(input => {
         input.addEventListener('blur', validateField);
         input.addEventListener('input', clearFieldError);
     });
 }
-
-// El resto de funciones de validación (validateContactForm, validateField, etc.) se quedan IGUAL
 
 /**
  * Valida el formulario de contacto completo
