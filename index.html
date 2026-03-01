@@ -662,106 +662,57 @@
     </section>
 
     <!-- Sección Contacto -->
-
-<section id="contacto" class="contact"> <!-- Sección contacto con ID -->
-    <div class="container"> <!-- Contenedor centrado -->
-        <div class="section-header"> <!-- Cabecera sección -->
-            <h2 class="section-title"> <!-- Título sección -->
-                ¡Hablemos! <span class="highlight">💖</span>
-            </h2>
-            <p class="section-subtitle"> <!-- Subtítulo sección -->
-                ¿Tienes un proyecto en mente? ¡Contáctame!
-            </p>
+<!-- Sección Contacto -->
+<section id="contacto" class="contact">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">¡Hablemos! <span class="highlight">💖</span></h2>
+            <p class="section-subtitle">¿Tienes un proyecto en mente? ¡Contáctame!</p>
         </div>
 
-        <div class="contact-content"> <!-- Contenido contacto -->
-            <form class="contact-form" id="contactForm" action="https://formsubmit.co/hannaflor26@gmail.com" method="POST"> <!-- Formulario con ID -->
+        <div class="contact-content">
+            <!-- FORMULARIO SIMPLIFICADO - FUNCIONA CON FORMSUBMIT -->
+            <form class="contact-form" action="https://formsubmit.co/hannaflor26@gmail.com" method="POST">
                 <!-- Ocultar captcha y redirección -->
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://tusitio.com/gracias.html">
+                <input type="hidden" name="_next" value="https://google.com">
                 <input type="hidden" name="_subject" value="¡Nuevo mensaje desde tu portafolio!">
-                <input type="hidden" name="_template" value="table">
                 
-                <div class="form-group"> <!-- Grupo formulario -->
-                    <label for="name"> <!-- Etiqueta campo -->
-                        <i class="fas fa-user"></i> Tu Nombre
-                    </label>
-                    <input type="text" id="name" name="name" placeholder="¿Cómo te llamas?" required> <!-- Campo texto -->
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Tu Nombre</label>
+                    <input type="text" id="name" name="name" placeholder="¿Cómo te llamas?" required>
                 </div>
 
-                <div class="form-group"> <!-- Grupo formulario -->
-                    <label for="email"> <!-- Etiqueta campo -->
-                        <i class="fas fa-envelope"></i> Tu Email
-                    </label>
-                    <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required> <!-- Campo email -->
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Tu Email</label>
+                    <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
                 </div>
 
-                <div class="form-group"> <!-- Grupo formulario -->
-                    <label for="category"> <!-- Etiqueta campo -->
-                        <i class="fas fa-tag"></i> Categoría de Proyecto
-                    </label>
-                    <select id="category" name="category"> <!-- Select opciones -->
-                        <option value="">Selecciona una categoría</option> <!-- Opción vacía -->
-                        <option value="personajes">Personajes</option> <!-- Opción personajes -->
-                        <option value="escenarios">Escenarios</option> <!-- Opción escenarios -->
-                        <option value="3d">Modelado 3D</option> <!-- Opción 3D -->
-                        <option value="animaciones">Animación</option> <!-- Opción animaciones -->
-                        <option value="otro">Otro</option> <!-- Opción otro -->
+                <div class="form-group">
+                    <label for="category"><i class="fas fa-tag"></i> Categoría de Proyecto</label>
+                    <select id="category" name="category">
+                        <option value="">Selecciona una categoría</option>
+                        <option value="personajes">Personajes</option>
+                        <option value="escenarios">Escenarios</option>
+                        <option value="3d">Modelado 3D</option>
+                        <option value="animaciones">Animación</option>
+                        <option value="otro">Otro</option>
                     </select>
                 </div>
 
-                <div class="form-group"> <!-- Grupo formulario -->
-                    <label for="message"> <!-- Etiqueta campo -->
-                        <i class="fas fa-comment"></i> Tu Mensaje
-                    </label>
-                    <textarea id="message" name="message" rows="5" placeholder="Cuéntame sobre tu proyecto, ideas, presupuesto..." required></textarea> <!-- Textarea -->
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-comment"></i> Tu Mensaje</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block"> <!-- Botón enviar -->
+                <button type="submit" class="btn btn-primary btn-block">
                     <i class="fas fa-paper-plane"></i> Enviar Mensaje
                 </button>
             </form>
 
-            <div class="contact-info"> <!-- Información contacto -->
-                <div class="info-card"> <!-- Tarjeta información -->
-                    <div class="info-icon"> <!-- Icono información -->
-                        <i class="fas fa-envelope"></i> <!-- Icono email -->
-                    </div>
-                    <h4>Email</h4> <!-- Título -->
-                    <p>hannaflor26@gmail.com</p> <!-- Información CORREGIDA -->
-                    <span>Respuesta en 24h</span> <!-- Detalle -->
-                </div>
-
-                <div class="info-card"> <!-- Tarjeta información -->
-                    <div class="info-icon">
-                        <i class="fas fa-phone"></i> <!-- Icono teléfono -->
-                    </div>
-                    <h4>Teléfono</h4>
-                    <p>+52 33 2679 4627</p>
-                    <span>Lunes a Viernes 9:00-18:00</span> <!-- Detalle -->
-                </div>
-
-                <div class="info-card"> <!-- Tarjeta información -->
-                    <a href="https://instagram.com/xochitl_soto_26" target="_blank" class="info-link" style="text-decoration: none; color: inherit; display: block;">
-                        <div class="info-icon"> <!-- Icono información -->
-                            <i class="fab fa-instagram"></i> <!-- Icono Instagram -->
-                        </div>
-                        <h4>Instagram</h4>
-                        <p>@xochitl_soto_26</p>
-                        <span>Dibujos y procesos</span> <!-- Detalle -->
-                    </a>
-                </div>
-
-                <div class="info-card"> <!-- Tarjeta información -->
-                    <a href="https://twitter.com/Hanna_uwu_26" target="_blank" class="info-link" style="text-decoration: none; color: inherit; display: block;">
-                        <div class="info-icon">
-                            <i class="fab fa-twitter"></i> <!-- Icono Twitter -->
-                        </div>
-                        <h4>Twitter</h4>
-                        <p>@Hanna_uwu_26</p> <!-- CAMBIA ESTO POR TU USUARIO REAL -->
-                        <span>Procesos y tips</span> <!-- Detalle -->
-                    </a>
-                </div>
+            <!-- Resto de tu HTML de contacto IGUAL -->
+            <div class="contact-info">
+                <!-- ... todo igual que antes ... -->
             </div>
         </div>
     </div>
