@@ -36,7 +36,7 @@ function init() {
     // Configurar enlaces de categorías
     setupCategoryLinks();
     
-    // Configurar modal de imágenes
+    // Configurar modal de imágenes y videos
     setupImageModal();
     
     // Configurar scroll y header
@@ -272,14 +272,14 @@ function setupCategoryLinks() {
 }
 
 // ============================================
-// MODAL DE IMÁGENES
+// MODAL DE IMÁGENES Y VIDEOS (VERSIÓN CORREGIDA)
 // ============================================
 
 /**
- * Configura la funcionalidad del modal para imágenes ampliadas
+ * Configura la funcionalidad del modal para imágenes y videos
  */
 function setupImageModal() {
-    // Añadir event listener a cada imagen para abrir modal
+    // Añadir event listener a cada card para abrir modal
     artCards.forEach(card => {
         card.addEventListener('click', function(e) {
             // Evitar abrir modal si se hizo clic en botones internos
@@ -287,13 +287,23 @@ function setupImageModal() {
                 return;
             }
             
+            // Obtener elementos dentro de la card
             const image = this.querySelector('img');
-            const title = this.querySelector('h4').textContent;
-            const description = this.querySelector('.card-footer p').textContent;
+            const video = this.querySelector('video');
+            const title = this.querySelector('.card-footer h4')?.textContent || 'Sin título';
+            const description = this.querySelector('.card-footer p')?.textContent || 'Sin descripción';
             const category = this.getAttribute('data-category');
-            const date = this.querySelector('.art-meta span:first-child').textContent;
+            const date = this.querySelector('.art-meta span:first-child')?.textContent || 'Fecha no disponible';
             
-            openImageModal(image.src, title, description, category, date);
+            // Determinar si es video o imagen
+            if (video) {
+                // Es un video
+                const videoSrc = video.querySelector('source')?.src || video.src;
+                openVideoModal(videoSrc, title, description, category, date);
+            } else if (image) {
+                // Es una imagen
+                openImageModal(image.src, title, description, category, date);
+            }
         });
     });
     
@@ -304,7 +314,67 @@ function setupImageModal() {
 }
 
 /**
- * Abre el modal con la imagen ampliada
+ * Abre el modal con video
+ * @param {string} videoSrc - URL del video
+ * @param {string} title - Título de la obra
+ * @param {string} description - Descripción de la obra
+ * @param {string} category - Categoría de la obra
+ * @param {string} date - Fecha de creación
+ */
+function openVideoModal(videoSrc, title, description, category, date) {
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalCategory = document.getElementById('modalCategory');
+    const modalDate = document.getElementById('modalDate');
+    const modalImageContainer = document.querySelector('.modal-image-container');
+    
+    // Ocultar la imagen estática
+    if (modalImage) {
+        modalImage.style.display = 'none';
+    }
+    
+    // Eliminar cualquier video existente
+    const existingVideo = modalImageContainer.querySelector('video');
+    if (existingVideo) {
+        existingVideo.remove();
+    }
+    
+    // Crear nuevo elemento de video
+    const modalVideo = document.createElement('video');
+    modalVideo.setAttribute('controls', 'controls');
+    modalVideo.setAttribute('autoplay', 'autoplay');
+    modalVideo.style.width = '100%';
+    modalVideo.style.height = 'auto';
+    modalVideo.style.borderRadius = 'var(--radio-borde-pequeno)';
+    
+    // Crear source
+    const source = document.createElement('source');
+    source.src = videoSrc;
+    source.type = 'video/mp4';
+    
+    // Añadir source al video
+    modalVideo.appendChild(source);
+    
+    // Mensaje de fallback
+    modalVideo.appendChild(document.createTextNode('Tu navegador no soporta la reproducción de videos.'));
+    
+    // Añadir video al contenedor
+    modalImageContainer.appendChild(modalVideo);
+    
+    // Configurar información
+    if (modalTitle) modalTitle.textContent = title;
+    if (modalDescription) modalDescription.textContent = description;
+    if (modalCategory) modalCategory.textContent = getCategoryName(category);
+    if (modalDate) modalDate.textContent = date;
+    
+    // Mostrar modal
+    imageModal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo
+}
+
+/**
+ * Abre el modal con la imagen ampliada (VERSIÓN MEJORADA)
  * @param {string} imageSrc - URL de la imagen
  * @param {string} title - Título de la obra
  * @param {string} description - Descripción de la obra
@@ -317,10 +387,22 @@ function openImageModal(imageSrc, title, description, category, date) {
     const modalDescription = document.getElementById('modalDescription');
     const modalCategory = document.getElementById('modalCategory');
     const modalDate = document.getElementById('modalDate');
+    const modalImageContainer = document.querySelector('.modal-image-container');
     
-    // Configurar contenido del modal
-    if (modalImage) modalImage.src = imageSrc;
-    if (modalImage) modalImage.alt = title;
+    // Eliminar cualquier video existente
+    const existingVideo = modalImageContainer.querySelector('video');
+    if (existingVideo) {
+        existingVideo.remove();
+    }
+    
+    // Mostrar la imagen
+    if (modalImage) {
+        modalImage.style.display = 'block';
+        modalImage.src = imageSrc;
+        modalImage.alt = title;
+    }
+    
+    // Configurar información
     if (modalTitle) modalTitle.textContent = title;
     if (modalDescription) modalDescription.textContent = description;
     if (modalCategory) modalCategory.textContent = getCategoryName(category);
@@ -332,9 +414,17 @@ function openImageModal(imageSrc, title, description, category, date) {
 }
 
 /**
- * Cierra el modal de imagen
+ * Cierra el modal de imagen/video
  */
 function closeImageModal() {
+    const modalImageContainer = document.querySelector('.modal-image-container');
+    const modalVideo = modalImageContainer.querySelector('video');
+    
+    // Pausar video si existe
+    if (modalVideo) {
+        modalVideo.pause();
+    }
+    
     imageModal.classList.remove('show');
     document.body.style.overflow = 'auto'; // Restaurar scroll
 }
@@ -673,18 +763,14 @@ function showNotification(message, type = 'success') {
  */
 function preloadImages() {
     const imagePaths = [
-        'imagenes/personajes/dibujo_personaje_1.jpg',
-        'imagenes/personajes/dibujo_personaje_2.jpg',
-        'imagenes/personajes/dibujo_personaje_3.jpg',
-        'imagenes/escenarios/dibujo_escenario_1.jpg',
-        'imagenes/escenarios/dibujo_escenario_2.jpg',
-        'imagenes/escenarios/dibujo_escenario_3.jpg',
-        'imagenes/3d/dibujo_3d_1.jpg',
-        'imagenes/3d/dibujo_3d_2.jpg',
-        'imagenes/3d/dibujo_3d_3.jpg',
-        'imagenes/animaciones/dibujo_animacion_1.jpg',
-        'imagenes/animaciones/dibujo_animacion_2.jpg',
-        'imagenes/animaciones/dibujo_animacion_3.jpg'
+        'assets/full body.jpg',
+        'assets/SIRENOP.jpg',
+        'assets/waifo_1.jpg',
+        'assets/SOLO DIBUJO.jpg',
+        'assets/FONDO_PRO_300000.jpg',
+        'assets/imagen.jpg',
+        'assets/FONDO_ANIMACIUON.jpg',
+        'assets/RENDER.png'
     ];
     
     imagePaths.forEach(path => {

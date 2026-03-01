@@ -349,9 +349,9 @@
                             <i class="far fa-heart"></i>
                         </button>
                     </div>
-                <!--2 - VIDEO GOMITAS -->
-                    <div class="art-image">
-                        <video autoplay loop muted playsinline>
+                    <!--2 - VIDEO GOMITAS (SILENCIADO Y CLICKEABLE) -->
+                    <div class="art-image video-container" data-video="./assets/videos/gomitas.mp4">
+                        <video loop muted playsinline disableRemotePlayback>
                             <source src="./assets/videos/gomitas.mp4" type="video/mp4">
                             Tu navegador no soporta la reproducción de videos.
                         </video>
@@ -370,7 +370,7 @@
                         <h4>Gomitas</h4>
                         <p>Simulación de goma</p>
                     </div>
-                </div>
+                </div>               
             <!--3-->
                 <div class="art-card" data-category="3d" data-id="9"> <!-- Card 3D 3 -->
                     <div class="card-header">
@@ -404,98 +404,100 @@
 
                 <div class="art-card" data-category="animaciones" data-id="10"> <!-- Card animación 1 (VIDEO) -->
                     <div class="card-header">
-                        <span class="category-badge bg-animacion"> <!-- Badge con clase específica -->
+                        <span class="category-badge bg-animacion">
                             <i class="fas fa-film"></i> Animación
                         </span>
                         <button class="favorite-btn">
                             <i class="far fa-heart"></i>
                         </button>
                     </div>
-                <!--1 - VIDEO HELLO HELLO -->
-                    <div class="art-image">
-                        <video autoplay loop muted playsinline>
-                            <source src="./assets/videos/VIDEO_HELLO_HELLO.mp4" type="video/mp4">
-                            Tu navegador no soporta la reproducción de videos.
-                        </video>
-                        <div class="art-overlay">
-                            <div class="overlay-content">
-                                <h3>Hello Hello</h3>
-                                <p>Animación 2D | 24 fps | Vectorial | VFX </p>
-                                <div class="art-meta">
-                                    <span><i class="fas fa-calendar"></i> Diciembre 2025</span>
-                                    <span><i class="fas fa-clock"></i> 40 horas</span>
-                                </div>
+                <!--1 - VIDEO HELLO HELLO (SILENCIADO Y CLICKEABLE) -->
+                <div class="art-image video-container" data-video="./assets/videos/VIDEO_HELLO_HELLO.mp4">
+                    <video loop muted playsinline disableRemotePlayback>
+                        <source src="./assets/videos/VIDEO_HELLO_HELLO.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de videos.
+                    </video>
+                    <div class="art-overlay">
+                        <div class="overlay-content">
+                            <h3>Hello Hello</h3>
+                            <p>Animación 2D | 24 fps | Vectorial | VFX </p>
+                            <div class="art-meta">
+                                <span><i class="fas fa-calendar"></i> Diciembre 2025</span>
+                                <span><i class="fas fa-clock"></i> 40 horas</span>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <h4>Hello Hello }</h4>
-                        <p>Animación Vectorial 2D de una canción</p>
-                    </div>
                 </div>
+                <div class="card-footer">
+                    <h4>Hello Hello }</h4>
+                    <p>Animación Vectorial 2D de una canción</p>
+                </div>
+            </div>
             <!--2 - VIDEO AUDIFONOS -->
-                <div class="art-card" data-category="animaciones" data-id="11"> <!-- Card animación 2 (VIDEO) -->
-                    <div class="card-header">
-                        <span class="category-badge bg-animacion">
-                            <i class="fas fa-film"></i> Animación
-                        </span>
-                        <button class="favorite-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                    <div class="art-image">
-                        <video autoplay loop muted playsinline>
-                            <source src="./assets/videos/EL CHIDOOOOOOOOOOOO.mp4" type="video/mp4">
-                            Tu navegador no soporta la reproducción de videos.
-                        </video>
-                        <div class="art-overlay">
-                            <div class="overlay-content">
-                                <h3>Audifonos Neko 3D</h3>
-                                <p>Animación 3D Comercial | COMISION </p>
-                                <div class="art-meta">
-                                    <span><i class="fas fa-calendar"></i> Mayo 2023 </span>
-                                    <span><i class="fas fa-clock"></i> 28 horas </span>
-                                </div>
+            <div class="art-card" data-category="animaciones" data-id="11"> <!-- Card animación 2 (VIDEO) -->
+                <div class="card-header">
+                    <span class="category-badge bg-animacion">
+                        <i class="fas fa-film"></i> Animación
+                    </span>
+                    <button class="favorite-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <!--2 - VIDEO AUDIFONOS (SILENCIADO Y CLICKEABLE) -->
+                <div class="art-image video-container" data-video="./assets/videos/EL CHIDOOOOOOOOOOOO.mp4">
+                    <video loop muted playsinline disableRemotePlayback>
+                        <source src="./assets/videos/EL CHIDOOOOOOOOOOOO.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de videos.
+                    </video>
+                    <div class="art-overlay">
+                        <div class="overlay-content">
+                            <h3>Audifonos Neko 3D</h3>
+                            <p>Animación 3D Comercial | COMISION </p>
+                            <div class="art-meta">
+                                <span><i class="fas fa-calendar"></i> Mayo 2023 </span>
+                                <span><i class="fas fa-clock"></i> 28 horas </span>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <h4>Audifonos Neko 3D</h4>
-                        <p>Animación 3D de audifonos comerciales</p>
-                    </div>
                 </div>
+                <div class="card-footer">
+                    <h4>Audifonos Neko 3D</h4>
+                    <p>Animación 3D de audifonos comerciales</p>
+                </div>
+            </div>
             <!--3 - VIDEO ULTIMO BAILE -->
-                <div class="art-card" data-category="animaciones" data-id="12"> <!-- Card animación 3 (VIDEO) -->
-                    <div class="card-header">
-                        <span class="category-badge bg-animacion">
-                            <i class="fas fa-film"></i> Animación
-                        </span>
-                        <button class="favorite-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                    <div class="art-image">
-                        <video autoplay loop muted playsinline>
-                            <source src="./assets/videos/ultimo_baile_.mp4" type="video/mp4">
-                            Tu navegador no soporta la reproducción de videos.
-                        </video>
-                        <div class="art-overlay">
-                            <div class="overlay-content">
-                                <h3>Ultimo baile</h3>
-                                <p>Animación artistica | Secuencia de baile | Sketch 2D</p>
-                                <div class="art-meta">
-                                    <span><i class="fas fa-calendar"></i> Agosto 2025</span>
-                                    <span><i class="fas fa-clock"></i> 5 horas</span>
-                                </div>
+            <div class="art-card" data-category="animaciones" data-id="12"> <!-- Card animación 3 (VIDEO) -->
+                <div class="card-header">
+                    <span class="category-badge bg-animacion">
+                        <i class="fas fa-film"></i> Animación
+                    </span>
+                    <button class="favorite-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <!--3 - VIDEO ULTIMO BAILE (SILENCIADO Y CLICKEABLE) -->
+                <div class="art-image video-container" data-video="./assets/videos/ultimo_baile_.mp4">
+                    <video loop muted playsinline disableRemotePlayback>
+                        <source src="./assets/videos/ultimo_baile_.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de videos.
+                    </video>
+                    <div class="art-overlay">
+                        <div class="overlay-content">
+                            <h3>Ultimo baile</h3>
+                            <p>Animación artistica | Secuencia de baile | Sketch 2D</p>
+                            <div class="art-meta">
+                                <span><i class="fas fa-calendar"></i> Agosto 2025</span>
+                                <span><i class="fas fa-clock"></i> 5 horas</span>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <h4>Ultimo baile</h4>
-                        <p>Sketch de una animación de baile de despedida</p>
-                    </div>
                 </div>
-
+                <div class="card-footer">
+                    <h4>Ultimo baile</h4>
+                    <p>Sketch de una animación de baile de despedida</p>
+                </div>
+            </div>
+<!--******************************************************************************************-->
             </div>
         </div>
     </section>
