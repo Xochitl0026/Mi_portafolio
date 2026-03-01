@@ -959,38 +959,121 @@ section { /* Todas las secciones */
 }
 
 /* ============================================
-   ESTILOS PARA LINKS DE CONTACTO
+   SECCIÓN CONTACTO
    ============================================ */
 
-.info-card a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    transition: transform 0.3s ease;
+.contact { /* Sección contacto */
+    background-color: var(--rosa-pastel); /* Fondo rosa pastel */
 }
 
-.info-card a:hover {
-    transform: translateY(-5px);
+.contact-content { /* Contenido contacto */
+    display: grid; /* CSS Grid */
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: var(--espacio-xxl); /* Espacio muy grande entre columnas */
+    max-width: 1200px; /* Máximo ancho */
+    margin: 0 auto; /* Centra horizontalmente */
 }
 
-.info-card a:hover .info-icon {
-    background-color: var(--rosa-principal);
-    color: var(--blanco);
+.contact-form { /* Formulario de contacto */
+    background-color: var(--blanco); /* Fondo blanco */
+    padding: var(--espacio-xl); /* Padding interno grande */
+    border-radius: var(--radio-borde); /* Bordes redondeados */
+    box-shadow: 0 20px 60px var(--sombra-suave); /* Sombra suave */
 }
 
-/* Mensaje de éxito después del envío */
-.success-message {
-    text-align: center;
-    padding: 30px;
-    background-color: #d4edda;
-    color: #155724;
-    border-radius: var(--radio-borde);
-    margin-top: 20px;
+.form-group { /* Grupo de formulario (label + input) */
+    margin-bottom: var(--espacio-md); /* Margen inferior */
 }
 
-.success-message i {
-    font-size: 3rem;
-    margin-bottom: 15px;
+.form-group label { /* Etiqueta del campo */
+    display: flex; /* Flex para alinear icono y texto */
+    align-items: center; /* Centra verticalmente */
+    gap: 8px; /* Espacio entre icono y texto */
+    margin-bottom: 8px; /* Margen inferior pequeño */
+    font-weight: 500; /* Grosor medio */
+    color: var(--negro); /* Color negro */
+}
+
+.form-group input, /* Campos input */
+.form-group textarea, /* Campo textarea */
+.form-group select { /* Campo select */
+    width: 100%; /* Ancho completo */
+    padding: 12px 16px; /* Padding interno */
+    border: 2px solid var(--rosa-claro); /* Borde rosa claro */
+    border-radius: var(--radio-borde-pequeno); /* Bordes redondeados pequeños */
+    font-family: 'Poppins', sans-serif; /* Fuente consistente */
+    font-size: 1rem; /* Tamaño estándar */
+    transition: all var(--transicion-rapida); /* Transición suave */
+    background-color: var(--blanco); /* Fondo blanco */
+}
+
+.form-group input:focus, /* Campo input en foco */
+.form-group textarea:focus, /* Campo textarea en foco */
+.form-group select:focus { /* Campo select en foco */
+    outline: none; /* Elimina outline por defecto */
+    border-color: var(--rosa-principal); /* Borde rosa principal */
+    box-shadow: 0 0 0 3px var(--sombra-media); /* Sombra de foco */
+}
+
+.form-group textarea { /* Específico para textarea */
+    resize: vertical; /* Permite redimensionar solo verticalmente */
+    min-height: 120px; /* Altura mínima */
+}
+
+.contact-info { /* Información de contacto */
+    display: grid; /* CSS Grid */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
+    gap: var(--espacio-md); /* Espacio entre cards */
+}
+
+.info-card { /* Tarjeta información contacto */
+    background-color: var(--blanco); /* Fondo blanco */
+    padding: var(--espacio-lg); /* Padding interno grande */
+    border-radius: var(--radio-borde); /* Bordes redondeados */
+    text-align: center; /* Texto centrado */
+    box-shadow: 0 10px 30px var(--sombra-suave); /* Sombra suave */
+    transition: all var(--transicion-rapida); /* Transición suave */
+}
+
+.info-card:hover { /* Estado hover tarjeta información */
+    transform: translateY(-5px); /* Se eleva 5px */
+    box-shadow: 0 15px 40px var(--sombra-media); /* Sombra más pronunciada */
+}
+
+.info-icon { /* Icono información */
+    width: 60px; /* Ancho fijo */
+    height: 60px; /* Alto fijo */
+    background-color: var(--rosa-pastel); /* Fondo rosa pastel */
+    border-radius: 50%; /* Forma circular */
+    display: flex; /* Flex para centrar icono */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    margin: 0 auto var(--espacio-sm); /* Margen auto centra, inferior */
+    font-size: 1.5rem; /* Tamaño icono */
+    color: var(--rosa-principal); /* Color rosa */
+    transition: all var(--transicion-rapida); /* Transición suave */
+}
+
+.info-card:hover .info-icon { /* Icono cuando card en hover */
+    background-color: var(--rosa-principal); /* Fondo rosa */
+    color: var(--blanco); /* Icono blanco */
+    transform: scale(1.1); /* Aumenta tamaño */
+}
+
+.info-card h4 { /* Título tarjeta información */
+    margin-bottom: 8px; /* Margen inferior pequeño */
+    color: var(--negro); /* Color negro */
+}
+
+.info-card p { /* Información principal */
+    font-size: 1.1rem; /* Tamaño mediano */
+    color: var(--rosa-principal); /* Color rosa */
+    margin-bottom: 5px; /* Margen inferior pequeño */
+}
+
+.info-card span { /* Detalle adicional */
+    font-size: 0.9rem; /* Tamaño pequeño */
+    color: var(--gris); /* Color gris */
 }
 
 /* ============================================
