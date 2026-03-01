@@ -1,3 +1,49 @@
+/*NUEVOO*/
+/* Para que el video se comporte como la imagen que tenías antes */
+.art-image {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Ajusta esta altura según tu diseño original */
+    overflow: hidden;
+}
+
+.art-image video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto mantiene la proporción del video cubriendo el área */
+    display: block;
+}
+
+/* Mantén tus estilos existentes para el overlay */
+.art-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* El resto de tus estilos del overlay se mantienen igual */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .side-decor {
   position: fixed;
   top: 50%;
