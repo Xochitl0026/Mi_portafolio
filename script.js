@@ -42,7 +42,7 @@ function init() {
     // Configurar scroll y header
     setupScrollEffects();
     
-    // Configurar formulario de contacto (AHORA ENVÍA CORREOS REALES)
+    // Configurar formulario de contacto
     setupContactForm();
 }
 
@@ -539,7 +539,7 @@ function setupScrollAnimations() {
 }
 
 // ============================================
-// FORMULARIO DE CONTACTO (CORREGIDO - ENVÍA CORREOS REALES)
+// FORMULARIO DE CONTACTO
 // ============================================
 
 /**
@@ -548,21 +548,14 @@ function setupScrollAnimations() {
 function setupContactForm() {
     if (!contactForm) return;
     
-    // El formulario ahora se envía realmente con FormSubmit.co
-    // Solo validamos antes de enviar
     contactForm.addEventListener('submit', function(e) {
-        // Validar formulario antes de enviar
-        if (!validateContactForm()) {
-            e.preventDefault(); // Solo prevenimos si no es válido
-            return false;
+        e.preventDefault(); // Previene envío tradicional
+        
+        // Validar formulario
+        if (validateContactForm()) {
+            // Simular envío exitoso
+            simulateFormSubmission();
         }
-        
-        // Si es válido, el formulario se envía normalmente a FormSubmit
-        // Mostramos notificación de que se está enviando
-        showNotification('Enviando mensaje... 📨', 'info');
-        
-        // El resto lo maneja FormSubmit.co
-        return true;
     });
     
     // Validación en tiempo real
@@ -664,8 +657,37 @@ function clearFieldError(e) {
     }
 }
 
-// NOTA: La función simulateFormSubmission YA NO SE USA
-// El formulario ahora envía correos reales con FormSubmit.co
+/**
+ * Simula el envío exitoso del formulario
+ */
+function simulateFormSubmission() {
+    // Mostrar estado de carga
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitButton.innerHTML;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+    submitButton.disabled = true;
+    
+    // Simular delay de red
+    setTimeout(() => {
+        // Restaurar botón
+        submitButton.innerHTML = originalText;
+        submitButton.disabled = false;
+        
+        // Mostrar mensaje de éxito
+        showNotification('¡Mensaje enviado con éxito! 🎉 Te contactaré pronto.');
+        
+        // Resetear formulario
+        contactForm.reset();
+        
+        // Enviar a Google Analytics (simulado)
+        console.log('Formulario enviado - Datos:', {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            category: document.getElementById('category').value,
+            message: document.getElementById('message').value
+        });
+    }, 2000);
+}
 
 // ============================================
 // UTILIDADES GENERALES
@@ -690,7 +712,7 @@ function showNotification(message, type = 'success') {
     notification.style.top = '20px';
     notification.style.right = '20px';
     notification.style.padding = '15px 20px';
-    notification.style.background = type === 'success' ? '#2ed573' : type === 'info' ? '#3498db' : '#ff4757';
+    notification.style.background = type === 'success' ? '#2ed573' : '#ff4757';
     notification.style.color = 'white';
     notification.style.borderRadius = '10px';
     notification.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
