@@ -718,6 +718,26 @@
             </form>
 
 
+             <script>
+                document.getElementById('contactForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    fetch(this.action, {
+                        method: 'POST',
+                        body: new FormData(this),
+                        headers: { 'Accept': 'application/json' }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert('¡Mensaje enviado con éxito!');
+                        this.reset();
+                    })
+                    .catch(error => {
+                        alert('Error: ' + error.message);
+                    });
+                });
+            </script>
+
 
             <div class="contact-info"> <!-- Información contacto -->
                 <div class="info-card"> <!-- Tarjeta información -->
