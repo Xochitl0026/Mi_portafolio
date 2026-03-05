@@ -539,22 +539,54 @@ function setupScrollAnimations() {
 }
 
 // ============================================
-// FORMULARIO DE CONTACTO
+// FORMULARIO DE CONTACTO - VERSIÓN FORMSpree
 // ============================================
 
-/**
- * Configura el formulario de contacto
- */
 function setupContactForm() {
+    const contactForm = document.getElementById('contactForm');
     if (!contactForm) return;
     
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Previene envío tradicional
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
         
         // Validar formulario
-        if (validateContactForm()) {
-            // Simular envío exitoso
-            simulateFormSubmission();
+        if (!validateContactForm()) return;
+        
+        // Deshabilitar botón
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitButton.innerHTML;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        submitButton.disabled = true;
+        
+        // Crear FormData
+        const formData = new FormData(contactForm);
+        
+        try {
+            // Enviar a Formspree
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Éxito
+                showNotification('¡Mensaje enviado con éxito! Te contactaré pronto 💖');
+                contactForm.reset();
+            } else {
+                // Error del servidor
+                const data = await response.json();
+                throw new Error(data.error || 'Error al enviar el mensaje');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            showNotification('Error: ' + error.message, 'error');
+        } finally {
+            // Restaurar botón
+            submitButton.innerHTML = originalText;
+            submitButton.disabled = false;
         }
     });
     
@@ -568,12 +600,10 @@ function setupContactForm() {
 
 /**
  * Valida el formulario de contacto completo
- * @returns {boolean} True si el formulario es válido
  */
 function validateContactForm() {
     let isValid = true;
     
-    // Validar cada campo
     const nameField = document.getElementById('name');
     const emailField = document.getElementById('email');
     const messageField = document.getElementById('message');
@@ -586,19 +616,18 @@ function validateContactForm() {
 }
 
 /**
- * Valida un campo individual del formulario
- * @param {HTMLElement} field - Campo a validar
- * @returns {boolean} True si el campo es válido
+ * Valida un campo individual
  */
 function validateField(field) {
+    if (!field) return true;
+    
     const value = field.value.trim();
     const errorElement = field.parentElement.querySelector('.error-message') || createErrorElement(field);
     
-    // Limpiar error previo
     errorElement.textContent = '';
     field.classList.remove('error');
+    field.style.borderColor = '';
     
-    // Validaciones específicas por tipo de campo
     if (field.required && !value) {
         showFieldError(field, errorElement, 'Este campo es requerido');
         return false;
@@ -607,7 +636,7 @@ function validateField(field) {
     if (field.type === 'email' && value) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) {
-            showFieldError(field, errorElement, 'Por favor ingresa un email válido');
+            showFieldError(field, errorElement, 'Ingresa un email válido');
             return false;
         }
     }
@@ -616,25 +645,23 @@ function validateField(field) {
 }
 
 /**
- * Crea un elemento para mostrar errores de campo
- * @param {HTMLElement} field - Campo que necesita elemento de error
- * @returns {HTMLElement} Elemento de error creado
+ * Crea elemento para mensajes de error
  */
 function createErrorElement(field) {
     const errorElement = document.createElement('div');
     errorElement.className = 'error-message';
-    errorElement.style.color = '#ff4757';
-    errorElement.style.fontSize = '0.85rem';
-    errorElement.style.marginTop = '5px';
+    errorElement.style.cssText = `
+        color: #ff4757;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        font-weight: 400;
+    `;
     field.parentElement.appendChild(errorElement);
     return errorElement;
 }
 
 /**
- * Muestra un error en un campo del formulario
- * @param {HTMLElement} field - Campo con error
- * @param {HTMLElement} errorElement - Elemento donde mostrar el error
- * @param {string} message - Mensaje de error
+ * Muestra error en campo
  */
 function showFieldError(field, errorElement, message) {
     field.classList.add('error');
@@ -643,8 +670,7 @@ function showFieldError(field, errorElement, message) {
 }
 
 /**
- * Limpia el error de un campo cuando el usuario comienza a escribir
- * @param {Event} e - Evento de input
+ * Limpia error del campo
  */
 function clearFieldError(e) {
     const field = e.target;
@@ -658,48 +684,9 @@ function clearFieldError(e) {
 }
 
 /**
- * Simula el envío exitoso del formulario
- */
-function simulateFormSubmission() {
-    // Mostrar estado de carga
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitButton.innerHTML;
-    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-    submitButton.disabled = true;
-    
-    // Simular delay de red
-    setTimeout(() => {
-        // Restaurar botón
-        submitButton.innerHTML = originalText;
-        submitButton.disabled = false;
-        
-        // Mostrar mensaje de éxito
-        showNotification('¡Mensaje enviado con éxito! 🎉 Te contactaré pronto.');
-        
-        // Resetear formulario
-        contactForm.reset();
-        
-        // Enviar a Google Analytics (simulado)
-        console.log('Formulario enviado - Datos:', {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            category: document.getElementById('category').value,
-            message: document.getElementById('message').value
-        });
-    }, 2000);
-}
-
-// ============================================
-// UTILIDADES GENERALES
-// ============================================
-
-/**
- * Muestra una notificación temporal al usuario
- * @param {string} message - Mensaje a mostrar
- * @param {string} type - Tipo de notificación (success, error, info)
+ * Muestra notificación flotante
  */
 function showNotification(message, type = 'success') {
-    // Crear elemento de notificación
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.innerHTML = `
@@ -707,84 +694,88 @@ function showNotification(message, type = 'success') {
         <button class="notification-close"><i class="fas fa-times"></i></button>
     `;
     
-    // Estilos de la notificación
-    notification.style.position = 'fixed';
-    notification.style.top = '20px';
-    notification.style.right = '20px';
-    notification.style.padding = '15px 20px';
-    notification.style.background = type === 'success' ? '#2ed573' : '#ff4757';
-    notification.style.color = 'white';
-    notification.style.borderRadius = '10px';
-    notification.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
-    notification.style.zIndex = '9999';
-    notification.style.display = 'flex';
-    notification.style.alignItems = 'center';
-    notification.style.gap = '15px';
-    notification.style.animation = 'slideIn 0.3s ease';
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 25px;
+        background: ${type === 'success' ? 'linear-gradient(135deg, #ff7ba3, #ff9eb5)' : '#ff4757'};
+        color: white;
+        border-radius: 50px;
+        box-shadow: 0 5px 20px rgba(255, 123, 163, 0.4);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        animation: slideIn 0.3s ease;
+        font-weight: 500;
+        border: 2px solid white;
+    `;
     
-    // Añadir al DOM
     document.body.appendChild(notification);
     
-    // Configurar botón de cierre
+    // Botón cerrar
     const closeBtn = notification.querySelector('.notification-close');
+    closeBtn.style.cssText = `
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 1.2rem;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s;
+    `;
+    
     closeBtn.addEventListener('click', () => {
         notification.style.animation = 'slideOut 0.3s ease';
         setTimeout(() => notification.remove(), 300);
     });
     
-    // Auto-remover después de 5 segundos
+    // Auto-cerrar
     setTimeout(() => {
         if (notification.parentNode) {
             notification.style.animation = 'slideOut 0.3s ease';
             setTimeout(() => notification.remove(), 300);
         }
-    }, 5000);
-    
-    // Añadir animaciones CSS si no existen
-    if (!document.querySelector('#notification-styles')) {
-        const styles = document.createElement('style');
-        styles.id = 'notification-styles';
-        styles.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(styles);
-    }
-}
-
-/**
- * Pre-carga imágenes para mejor experiencia de usuario
- */
-function preloadImages() {
-    const imagePaths = [
-        'assets/full body.jpg',
-        'assets/SIRENOP.jpg',
-        'assets/waifo_1.jpg',
-        'assets/SOLO DIBUJO.jpg',
-        'assets/FONDO_PRO_300000.jpg',
-        'assets/imagen.jpg',
-        'assets/FONDO_ANIMACIUON.jpg',
-        'assets/RENDER.png'
-    ];
-    
-    imagePaths.forEach(path => {
-        const img = new Image();
-        img.src = path;
-    });
+    }, 4000);
 }
 
 // ============================================
-// INICIALIZACIÓN AL CARGAR EL DOM
+// ANIMACIONES PARA NOTIFICACIONES
 // ============================================
+if (!document.querySelector('#notification-styles')) {
+    const styles = document.createElement('style');
+    styles.id = 'notification-styles';
+    styles.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(100%) scale(0.8); opacity: 0; }
+            to { transform: translateX(0) scale(1); opacity: 1; }
+        }
+        @keyframes slideOut {
+            from { transform: translateX(0) scale(1); opacity: 1; }
+            to { transform: translateX(100%) scale(0.8); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(styles);
+}
 
-// Inicializar cuando el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', init);
+// ============================================
+// INICIALIZACIÓN
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    setupContactForm();
+    // El resto de tus funciones de inicialización (menú, filtros, etc.) aquí
+});
+
+
+
+
+
+
+
 
 // Pre-cargar imágenes cuando la ventana se carga completamente
 window.addEventListener('load', preloadImages);
