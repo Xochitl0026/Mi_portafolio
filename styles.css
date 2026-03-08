@@ -1,15 +1,46 @@
+/* ============================================
+   VIDEOS CLICKEABLES - CORREGIDO
+   ============================================ */
+
 /* Hacer que el contenedor del video sea clickeable */
 .art-image.video-container {
     cursor: pointer;
+    position: relative;
 }
 
-/* Asegurar que el video esté silenciado */
+/* Asegurar que el video NO bloquee los clics */
 .art-image video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    pointer-events: none; /* Para que el click pase al contenedor */
+    pointer-events: auto; /* CAMBIADO: ahora permite clics */
+}
+
+/* Overlay para indicar que es clickeable (opcional) */
+.art-image.video-container::after {
+    content: '▶';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 123, 163, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none; /* Solo decorativo, no bloquea */
+    z-index: 5;
+}
+
+.art-image.video-container:hover::after {
+    opacity: 1;
 }
 
 /* Estilos para video en el modal */
@@ -18,7 +49,6 @@
     height: auto;
     border-radius: var(--radio-borde-pequeno);
 }
-
 
 
 

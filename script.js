@@ -278,14 +278,23 @@ function setupCategoryLinks() {
 /**
  * Configura la funcionalidad del modal para imágenes y videos
  */
+// ============================================
+// MODAL DE IMÁGENES Y VIDEOS - VERSIÓN CORREGIDA
+// ============================================
+
 function setupImageModal() {
     // Añadir event listener a cada card para abrir modal
     artCards.forEach(card => {
         card.addEventListener('click', function(e) {
             // Evitar abrir modal si se hizo clic en botones internos
-            if (e.target.closest('.favorite-btn') || e.target.closest('.category-link')) {
+            if (e.target.closest('.favorite-btn') || 
+                e.target.closest('.category-link') ||
+                e.target.closest('.filter-btn')) {
                 return;
             }
+            
+            // Detener propagación para evitar conflictos
+            e.stopPropagation();
             
             // Obtener elementos dentro de la card
             const image = this.querySelector('img');
@@ -293,13 +302,22 @@ function setupImageModal() {
             const title = this.querySelector('.card-footer h4')?.textContent || 'Sin título';
             const description = this.querySelector('.card-footer p')?.textContent || 'Sin descripción';
             const category = this.getAttribute('data-category');
-            const date = this.querySelector('.art-meta span:first-child')?.textContent || 'Fecha no disponible';
+            
+            // Obtener fecha del meta
+            const dateElement = this.querySelector('.art-meta span:first-child');
+            const date = dateElement ? dateElement.textContent : 'Fecha no disponible';
+            
+            console.log('Clic en card:', { tieneVideo: !!video, titulo: title }); // Debug
             
             // Determinar si es video o imagen
             if (video) {
-                // Es un video
+                // Es un video - obtener source
                 const videoSrc = video.querySelector('source')?.src || video.src;
-                openVideoModal(videoSrc, title, description, category, date);
+                if (videoSrc) {
+                    openVideoModal(videoSrc, title, description, category, date);
+                } else {
+                    console.error('No se encontró source de video');
+                }
             } else if (image) {
                 // Es una imagen
                 openImageModal(image.src, title, description, category, date);
