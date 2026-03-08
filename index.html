@@ -646,104 +646,105 @@
         </div>
     </section>
 
-    <!-- Sección Contacto -->
-    <section id="contacto" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    ¡Hablemos! <span class="highlight">💖</span>
-                </h2>
-                <p class="section-subtitle">
-                    ¿Tienes un proyecto en mente? ¡Contáctame!
-                </p>
-            </div>
+   <!-- Sección Contacto -->
+<section id="contacto" class="contact">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">
+                ¡Hablemos! <span class="highlight">💖</span>
+            </h2>
+            <p class="section-subtitle">
+                ¿Tienes un proyecto en mente? ¡Contáctame!
+            </p>
+        </div>
 
-            <div class="contact-content">
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xvzwpykp" method="POST">
-                    <div class="form-group">
-                        <label for="name">
-                            <i class="fas fa-user"></i> Tu Nombre
-                        </label>
-                        <input type="text" id="name" name="name" placeholder="¿Cómo te llamas?" required>
+        <div class="contact-content">
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xvzwpykp" method="POST">
+                <div class="form-group">
+                    <label for="name">
+                        <i class="fas fa-user"></i> Tu Nombre
+                    </label>
+                    <input type="text" id="name" name="name" placeholder="¿Cómo te llamas?" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i> Tu Email
+                    </label>
+                    <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">
+                        <i class="fas fa-tag"></i> Categoría de Proyecto
+                    </label>
+                    <select id="category" name="category">
+                        <option value="">Selecciona una categoría</option>
+                        <option value="personajes">Personajes</option>
+                        <option value="escenarios">Escenarios</option>
+                        <option value="3d">Modelado 3D</option>
+                        <option value="animaciones">Animación</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">
+                        <i class="fas fa-comment"></i> Tu Mensaje
+                    </label>
+                    <textarea id="message" name="message" rows="5" placeholder="Cuéntame sobre tu proyecto, ideas, presupuesto..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                </button>
+            </form>
+
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
+                    <h4>Email</h4>
+                    <p>hannaflor26@gmail.com</p>
+                    <span>Respuesta en 24h</span>
+                </div>
 
-                    <div class="form-group">
-                        <label for="email">
-                            <i class="fas fa-envelope"></i> Tu Email
-                        </label>
-                        <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
                     </div>
+                    <h4>Teléfono</h4>
+                    <p>+52 33 2679 4627</p>
+                    <span>Lunes a Viernes 9:00-18:00</span>
+                </div>
 
-                    <div class="form-group">
-                        <label for="category">
-                            <i class="fas fa-tag"></i> Categoría de Proyecto
-                        </label>
-                        <select id="category" name="category">
-                            <option value="">Selecciona una categoría</option>
-                            <option value="personajes">Personajes</option>
-                            <option value="escenarios">Escenarios</option>
-                            <option value="3d">Modelado 3D</option>
-                            <option value="animaciones">Animación</option>
-                            <option value="otro">Otro</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">
-                            <i class="fas fa-comment"></i> Tu Mensaje
-                        </label>
-                        <textarea id="message" name="message" rows="5" placeholder="Cuéntame sobre tu proyecto, ideas, presupuesto..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-block">
-                        <i class="fas fa-paper-plane"></i> Enviar Mensaje
-                    </button>
-                </form>
-
-                <div class="contact-info">
-                    <div class="info-card">
+                <div class="info-card">
+                    <a href="https://instagram.com/xochitl_soto_26" target="_blank" class="info-link" style="text-decoration: none; color: inherit; display: block;">
                         <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
+                            <i class="fab fa-instagram"></i>
                         </div>
-                        <h4>Email</h4>
-                        <p>hannaflor26@gmail.com</p>
-                        <span>Respuesta en 24h</span>
-                    </div>
+                        <h4>Instagram</h4>
+                        <p>@xochitl_soto_26</p>
+                        <span>Dibujos y procesos</span>
+                    </a>
+                </div>
 
-                    <div class="info-card">
+                <!-- CAMBIADO: Twitter → ArtStation -->
+                <div class="info-card">
+                    <a href="https://www.artstation.com/tu_usuario" target="_blank" class="info-link" style="text-decoration: none; color: inherit; display: block;">
                         <div class="info-icon">
-                            <i class="fas fa-phone"></i>
+                            <i class="fab fa-artstation"></i> <!-- Icono de ArtStation -->
                         </div>
-                        <h4>Teléfono</h4>
-                        <p>+52 33 2679 4627</p>
-                        <span>Lunes a Viernes 9:00-18:00</span>
-                    </div>
-
-                    <div class="info-card">
-                        <a href="https://instagram.com/xochitl_soto_26" target="_blank" class="info-link" style="text-decoration: none; color: inherit; display: block;">
-                            <div class="info-icon">
-                                <i class="fab fa-instagram"></i>
-                            </div>
-                            <h4>Instagram</h4>
-                            <p>@xochitl_soto_26</p>
-                            <span>Dibujos y procesos</span>
-                        </a>
-                    </div>
-
-                    <div class="info-card">
-                        <a href="https://twitter.com/Hanna_uwu_26" target="_blank" class="info-link" style="text-decoration: none; color: inherit; display: block;">
-                            <div class="info-icon">
-                                <i class="fab fa-twitter"></i>
-                            </div>
-                            <h4>Twitter</h4>
-                            <p>@Hanna_uwu_26</p>
-                            <span>Procesos y tips</span>
-                        </a>
-                    </div>
+                        <h4>ArtStation</h4>
+                        <p>@xochitl_soto</p> <!-- Cambia por tu usuario de ArtStation -->
+                        <span>Portafolio profesional</span> <!-- Descripción actualizada -->
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -792,29 +793,31 @@
                     </div>
                 </div>
 
-                <div class="footer-social">
-                    <h4>Sígueme</h4>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-pinterest"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-artstation"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-behance"></i>
-                        </a>
-                    </div>
+        <div class="footer-social">
+             <h4>Sígueme</h4>
+                <div class="social-icons">
+                    <a href="https://instagram.com/xochitl_soto_26" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <!-- CAMBIADO: Twitter → ArtStation -->
+                    <a href="https://www.artstation.com/tu_usuario" target="_blank" class="social-icon">
+                        <i class="fab fa-artstation"></i> <!-- Icono de ArtStation -->
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-artstation"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-behance"></i>
+                    </a>
                 </div>
+        </div>
+                
             </div>
 
             <div class="footer-bottom">
