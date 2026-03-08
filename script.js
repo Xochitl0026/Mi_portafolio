@@ -2,17 +2,32 @@
 // VARIABLES GLOBALES
 // ============================================
 
-// Elementos del DOM frecuentemente usados
-const menuToggle = document.querySelector('.menu-toggle'); // Botón menú hamburguesa
-const navMenu = document.querySelector('.nav-menu'); // Menú de navegación
-const backToTop = document.getElementById('backToTop'); // Botón volver arriba
-const contactForm = document.getElementById('contactForm'); // Formulario contacto
-const filterButtons = document.querySelectorAll('.filter-btn'); // Botones filtro galería
-const artCards = document.querySelectorAll('.art-card'); // Cards de arte
-const favoriteButtons = document.querySelectorAll('.favorite-btn'); // Botones favorito
-const categoryLinks = document.querySelectorAll('.category-link'); // Enlaces categorías
-const imageModal = document.getElementById('imageModal'); // Modal imagen
-const modalClose = document.getElementById('modalClose'); // Botón cerrar modal
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+const backToTop = document.getElementById('backToTop');
+const contactForm = document.getElementById('contactForm');
+const filterButtons = document.querySelectorAll('.filter-btn');
+const artCards = document.querySelectorAll('.art-card');
+const favoriteButtons = document.querySelectorAll('.favorite-btn');
+const categoryLinks = document.querySelectorAll('.category-link');
+const imageModal = document.getElementById('imageModal');
+const modalClose = document.getElementById('modalClose');
+
+// ============================================
+// INICIALIZACIÓN
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Portafolio Artístico inicializado 🎨');
+    
+    setupEventListeners();
+    setupGalleryFilters();
+    setupFavorites();
+    setupCategoryLinks();
+    setupImageModal();
+    setupScrollEffects();
+    setupContactForm();
+});
 
 // ============================================
 // FUNCIONES DE INICIALIZACIÓN
