@@ -1502,6 +1502,100 @@ select.error {
     border-color: #ff4757 !important;
 }
 
+
+
+
+
+
+/* ===== BOTONES FLOTANTES ===== */
+.dark-mode-toggle, .translate-btn {
+    position: fixed;
+    bottom: 20px;
+    background: #ff6b9d;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.8rem 1rem;
+    border-radius: 50px;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    font-weight: bold;
+    color: white;
+}
+
+.dark-mode-toggle:hover, .translate-btn:hover {
+    transform: scale(1.05);
+    background: #ff4757;
+}
+
+.dark-mode-toggle {
+    right: 20px;
+}
+
+.translate-btn {
+    right: 120px;
+}
+
+/* ===== MODO OSCURO ===== */
+body.dark-mode {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --text-color: #eeeeee;
+    --text-muted: #a0a0a0;
+    --card-bg: #0f3460;
+    --border-color: #2a2a4a;
+    --shadow-color: rgba(0,0,0,0.3);
+}
+
+body.dark-mode {
+    background: var(--bg-primary);
+    color: var(--text-color);
+}
+
+body.dark-mode .header,
+body.dark-mode .footer {
+    background: #0a0a1a;
+}
+
+body.dark-mode .art-card,
+body.dark-mode .category-card,
+body.dark-mode .info-card,
+body.dark-mode .contact-form {
+    background: var(--card-bg);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+body.dark-mode .filter-btn {
+    background: var(--bg-secondary);
+    color: var(--text-color);
+}
+
+body.dark-mode .filter-btn.active {
+    background: #ff6b9d;
+    color: white;
+}
+
+body.dark-mode .skill-progress {
+    background: #ff6b9d;
+}
+
+body.dark-mode .hero,
+body.dark-mode .about,
+body.dark-mode .categories,
+body.dark-mode .gallery {
+    background: var(--bg-primary);
+}
+
+body.dark-mode .side-decor span {
+    opacity: 0.5;
+}
+
+
+
+
+
+
 /* ============================================
    FIN DEL CSS - TODO CORREGIDO
    ============================================ */

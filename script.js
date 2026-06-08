@@ -849,3 +849,179 @@ if (!Element.prototype.matches) {
             return i > -1;
         };
 }
+
+// ==================== MODO OSCURO ====================
+const darkModeBtn = document.createElement('button');
+darkModeBtn.innerHTML = '🌙 Modo Oscuro';
+darkModeBtn.className = 'dark-mode-toggle';
+document.body.appendChild(darkModeBtn);
+
+// Verificar preferencia guardada
+if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    darkModeBtn.innerHTML = '☀️ Modo Claro';
+}
+
+darkModeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+        darkModeBtn.innerHTML = '☀️ Modo Claro';
+    } else {
+        localStorage.setItem('darkMode', 'disabled');
+        darkModeBtn.innerHTML = '🌙 Modo Oscuro';
+    }
+});
+
+// ==================== TRADUCTOR ESPAÑOL - INGLÉS ====================
+const translateBtn = document.createElement('button');
+translateBtn.innerHTML = '🌐 Español';
+translateBtn.className = 'translate-btn';
+document.body.appendChild(translateBtn);
+
+// Estado del idioma (false = español, true = inglés)
+let isEnglish = localStorage.getItem('language') === 'en';
+
+// Diccionario de traducciones
+const translations = {
+    // Textos principales del sitio
+    "Inicio": "Home",
+    "Galería": "Gallery",
+    "Categorías": "Categories",
+    "Sobre Mí": "About Me",
+    "Contacto": "Contact",
+    "Ver Galería": "View Gallery",
+    "Contáctame": "Contact Me",
+    "Proyectos": "Projects",
+    "Categorías": "Categories",
+    "Dedicación": "Dedication",
+    "Todos": "All",
+    "Personajes": "Characters",
+    "Escenarios": "Scenarios",
+    "3D": "3D",
+    "Animaciones": "Animations",
+    "Mostrando: Todos los dibujos": "Showing: All drawings",
+    "Personaje": "Character",
+    "Escenario": "Scenario",
+    "Animación": "Animation",
+    "Ver proyectos": "View projects",
+    "Trabajemos Juntos": "Let's Work Together",
+    "Ver Portafolio Completo": "View Full Portfolio",
+    "Enviar Mensaje": "Send Message",
+    "Email": "Email",
+    "Teléfono": "Phone",
+    "Respuesta en 24h": "Response within 24h",
+    "Lunes a Viernes 9:00-18:00": "Monday to Friday 9:00-18:00",
+    "Dibujos y procesos": "Drawings and processes",
+    "Portafolio profesional": "Professional Portfolio",
+    "Sígueme": "Follow Me",
+    "Navegación": "Navigation",
+    "Legal": "Legal",
+    // Textos largos del Sobre Mí
+    "¡Hola! Soy Xochil Soto, estudiante de séptimo semestre de Animación.": "Hello! I'm Xochil Soto, a 7th semester Animation student.",
+    "Me encanta participar en todo tipo de proyectos, desde grandes producciones hasta comisiones personales. He tenido la oportunidad de liderar equipos como directora de proyectos, coordinando campos creativos y dando vida a las ideas.": "I love participating in all kinds of projects, from large productions to personal commissions. I have had the opportunity to lead teams as a project director, coordinating creative fields and bringing ideas to life.",
+    "Lo que me hace diferente: no solo animo, también entiendo cómo funciona un proyecto de principio a fin. Disfruto tanto organizar el equipo como meterme en los detalles más pequeños.": "What makes me different: I not only animate, I also understand how a project works from start to finish. I enjoy both organizing the team and diving into the smallest details.",
+    "¿Tienes un proyecto? ¡Hablemos y creemos algo increíble juntos! ✨": "Do you have a project? Let's talk and create something amazing together! ✨",
+    // Habilidades
+    "Ilustración Digital": "Digital Illustration",
+    "Modelado 3D": "3D Modeling",
+    "Animación 2D/3D": "2D/3D Animation",
+    "Diseño de Personajes": "Character Design",
+    // Categorías descripciones
+    "Creación de personajes únicos con personalidad y emociones": "Creation of unique characters with personality and emotions",
+    "Diseño de mundos fantásticos y ambientes inmersivos": "Design of fantastic worlds and immersive environments",
+    "Creación de objetos y personajes en tres dimensiones": "Creation of objects and characters in three dimensions",
+    "Dando vida a mis creaciones con movimiento y fluidez": "Bringing my creations to life with movement and fluidity",
+    // Footer
+    "Creando magia con cada píxel ✨": "Creating magic with every pixel ✨",
+    "Política de Privacidad": "Privacy Policy",
+    "Términos y Condiciones": "Terms and Conditions",
+    "Aviso Legal": "Legal Notice",
+    "Cookies": "Cookies",
+    "Pagina creada por:": "Page created by:",
+    // Contacto
+    "¿Tienes un proyecto en mente? ¡Contáctame!": "Do you have a project in mind? Contact me!",
+    "Tu Nombre": "Your Name",
+    "Tu Email": "Your Email",
+    "Categoría de Proyecto": "Project Category",
+    "Selecciona una categoría": "Select a category",
+    "Otro": "Other",
+    "Tu Mensaje": "Your Message",
+    "Cuéntame sobre tu proyecto, ideas, presupuesto...": "Tell me about your project, ideas, budget...",
+    "¿Cómo te llamas?": "What's your name?",
+    "tucorreo@ejemplo.com": "your@email.com"
+};
+
+function translateToEnglish() {
+    // Recorrer todos los elementos que contienen texto
+    const allElements = document.querySelectorAll('h1, h2, h3, h4, p, span, a, button, li, label, option, .stat-text, .card-footer p, .about-description, .skill-header span, .category-card p, .category-stats span, .info-card span, .footer-tagline, .copyright, .made-with, .filter-info span');
+    
+    allElements.forEach(element => {
+        // Solo traducir si no está vacío y no es un input
+        if (element.childNodes.length === 1 && element.childNodes[0].nodeType === Node.TEXT_NODE) {
+            const originalText = element.textContent.trim();
+            if (translations[originalText]) {
+                element.textContent = translations[originalText];
+            }
+        }
+    });
+    
+    // Traducir placeholders de inputs
+    const nameInput = document.getElementById('name');
+    if (nameInput && nameInput.placeholder) {
+        if (translations[nameInput.placeholder]) {
+            nameInput.placeholder = translations[nameInput.placeholder];
+        }
+    }
+    
+    const emailInput = document.getElementById('email');
+    if (emailInput && emailInput.placeholder) {
+        if (translations[emailInput.placeholder]) {
+            emailInput.placeholder = translations[emailInput.placeholder];
+        }
+    }
+    
+    const messageInput = document.getElementById('message');
+    if (messageInput && messageInput.placeholder) {
+        if (translations[messageInput.placeholder]) {
+            messageInput.placeholder = translations[messageInput.placeholder];
+        }
+    }
+    
+    // Traducir opciones del select
+    const selectOptions = document.querySelectorAll('#category option');
+    selectOptions.forEach(option => {
+        if (translations[option.textContent]) {
+            option.textContent = translations[option.textContent];
+        }
+    });
+}
+
+function translateToSpanish() {
+    location.reload(); // Recargar la página para volver al español original
+}
+
+// Configurar el botón según el idioma guardado
+if (isEnglish) {
+    translateBtn.innerHTML = '🇬🇧 English';
+    translateToEnglish();
+} else {
+    translateBtn.innerHTML = '🇪🇸 Español';
+}
+
+translateBtn.addEventListener('click', () => {
+    if (isEnglish) {
+        // Cambiar a español
+        translateToSpanish();
+        localStorage.setItem('language', 'es');
+        isEnglish = false;
+        translateBtn.innerHTML = '🇪🇸 Español';
+    } else {
+        // Cambiar a inglés
+        translateToEnglish();
+        localStorage.setItem('language', 'en');
+        isEnglish = true;
+        translateBtn.innerHTML = '🇬🇧 English';
+    }
+});
